@@ -21,7 +21,7 @@ const Home = () => {
   const getImageUrl = (imagePath) => {
     if (USE_MOCK_DATA) {
       // For mock data, use images from public folder with PUBLIC_URL
-      const path = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
+      const path = imagePath.startsWith("/") ? imagePath.slice(1) : imagePath;
       return `${process.env.PUBLIC_URL}/${path}`;
     } else {
       // For API data, use baseUrl
@@ -223,7 +223,7 @@ const Home = () => {
             <div className="col-12">
               <div className="hero-image-container position-relative">
                 <img
-                  src="/images/banners/banner3.png"
+                  src={`${process.env.PUBLIC_URL}/images/banners/banner3.png`}
                   alt="Healthcare Services - Lab Tests & Health Checkups"
                   className="hero-image w-100"
                   style={{
@@ -233,7 +233,7 @@ const Home = () => {
                   }}
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = "/images/banners/banner1.png";
+                    e.target.src = `${process.env.PUBLIC_URL}/images/banners/banner1.png`;
                   }}
                 />
               </div>
@@ -450,7 +450,7 @@ const Home = () => {
             style={{ justifyContent: "center", display: "flex" }}
           >
             <img
-              src="/banners/long-banner.png"
+              src={`${process.env.PUBLIC_URL}/images/banners/sec2-banner.png`}
               alt="Long Healthcare Banner"
               className="carousel-banner-img"
               style={{
@@ -471,7 +471,7 @@ const Home = () => {
           {/* First set of banners */}
           <div className="carousel-item">
             <img
-              src="/images/banners/banner1.png"
+              src={`${process.env.PUBLIC_URL}/images/banners/banner1.png`}
               alt="Complete Health Checkup"
               className="carousel-banner-img"
               style={{
@@ -486,7 +486,7 @@ const Home = () => {
           </div>
           <div className="carousel-item">
             <img
-              src="/images/banners/banner2.png"
+              src={`${process.env.PUBLIC_URL}/images/banners/banner2.png`}
               alt="Blood Test Package"
               className="carousel-banner-img"
               style={{
@@ -624,11 +624,56 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Special Offers Section */}
+      <section className="special-offers-section py-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <div className="special-offers-container">
+                {/* Header */}
+                <div className="offers-header text-center mb-4">
+                  <h2 className="offers-title">
+                    <span className="gradient-text">🎉 Special Offers</span>
+                  </h2>
+                  <p className="offers-subtitle">
+                    Limited time deals on health checkups & lab tests
+                  </p>
+                </div>
+
+                {/* See More Button */}
+                <div className="text-center mt-4">
+                  <Link to="/checkups" className="btn see-more-btn">
+                    <span className="btn-text">See All Offers</span>
+                    <span className="btn-icon">→</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Promotional Card Section */}
       <section className="py-4">
         <div className="container">
           <div className="d-flex justify-content-center">
             <PromotionalCard imageUrl="/images/banners/banner1.png" />
+          </div>
+        </div>
+      </section>
+
+      {/* Sliding Text Section Above Women Care */}
+      <section className="sliding-text-section py-3">
+        <div className="sliding-text-container">
+          <div className="sliding-text">
+            🌸 Women's Health Matters | 💖 Comprehensive Care for Every Woman |
+            ✨ Preventive Health Checkups | 🔬 Advanced Diagnostics | 💪
+            Empowering Women's Wellness | 🩺 Expert Healthcare Solutions | 🌺
+            Your Health, Our Priority | 💫 Trusted by Thousands of Women | 🌸
+            Women's Health Matters | 💖 Comprehensive Care for Every Woman | ✨
+            Preventive Health Checkups | 🔬 Advanced Diagnostics | 💪 Empowering
+            Women's Wellness | 🩺 Expert Healthcare Solutions | 🌺 Your Health,
+            Our Priority | 💫 Trusted by Thousands of Women
           </div>
         </div>
       </section>
