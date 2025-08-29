@@ -1,3 +1,7 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -193,6 +197,152 @@ h6 {
 
   100% {
     background-position: -200% 0;
+  }
+}
+
+/* Promotional Card Animations */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%,
+  43% {
+    transform: translate3d(0, -5px, 0);
+  }
+
+  70% {
+    transform: translate3d(0, -3px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -1px, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Promotional Card Hover Effects */
+.promotional-card {
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.promotional-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Badge animations */
+.promotional-badge {
+  animation: bounce 2s infinite;
+}
+
+.promotional-badge:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+/* Healthcare Promotional Banner Styles */
+.healthcare-banner {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border: 1px solid #e3f2fd;
+  transition: all 0.3s ease;
+}
+
+.healthcare-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+}
+
+.healthcare-banner .btn-dark {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+  transition: all 0.3s ease;
+}
+
+.healthcare-banner .btn-dark:hover {
+  background-color: #333333 !important;
+  border-color: #333333 !important;
+  transform: translateY(-1px);
+}
+
+.healthcare-banner .btn-success {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+  transition: all 0.3s ease;
+}
+
+.healthcare-banner .btn-success:hover {
+  background-color: #218838 !important;
+  border-color: #1e7e34 !important;
+  transform: translateY(-1px);
+}
+
+.healthcare-banner .price-highlight {
+  text-shadow: 1px 1px 2px rgba(220, 53, 69, 0.3);
+}
+
+.healthcare-banner .offer-badge {
+  background: linear-gradient(45deg, #dc3545, #e74c3c);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Responsive adjustments for banner */
+@media (max-width: 768px) {
+  .healthcare-banner {
+    margin: 15px 0;
+  }
+
+  .healthcare-banner .row {
+    text-align: center;
+  }
+
+  .healthcare-banner .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .healthcare-banner h2 {
+    font-size: 1.1rem !important;
+  }
+
+  .healthcare-banner .fs-2 {
+    font-size: 1.5rem !important;
   }
 }
 
@@ -3852,5 +4002,43 @@ dropdow-offfcanvas */
 
   .dropdown-header .drptst-icon {
     width: 30px !important;
+  }
+}
+
+/* Pulse animation for banner pointing gesture */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Bounce animation for Best Deal indicator */
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
   }
 }

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { baseUrl, API_ENDPOINTS, USE_MOCK_DATA } from "../utils/config";
 import { mockData } from "../utils/mockData";
+import PromotionalCard from "../components/PromotionalCard";
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
-  const [vitalOrgans, setVitalOrgans] = useState([]);
   const [womenAge, setWomenAge] = useState([]);
   const [womenCare, setWomenCare] = useState([]);
   const [menAge, setMenAge] = useState([]);
@@ -36,7 +36,6 @@ const Home = () => {
           console.log("Using mock data (development mode)");
           setCategories(mockData.categories || []);
           setAds(mockData.ads || []);
-          setVitalOrgans(mockData.vitalOrgans || []);
           setWomenAge(mockData.womenCare || []);
           setWomenCare(mockData.womenCare || []);
           setMenAge(mockData.menCare || []);
@@ -60,9 +59,6 @@ const Home = () => {
             res.json()
           ),
           fetch(`${baseUrl}${API_ENDPOINTS.BOTTOM_BANNERS}`).then((res) =>
-            res.json()
-          ),
-          fetch(`${baseUrl}${API_ENDPOINTS.VITAL_ORGANS}`).then((res) =>
             res.json()
           ),
           fetch(`${baseUrl}${API_ENDPOINTS.WOMEN_AGE}`).then((res) =>
@@ -89,7 +85,6 @@ const Home = () => {
         const [
           lessPrice,
           adsData,
-          vitalOrganData,
           womenAgeData,
           womenCareData,
           menAgeData,
@@ -106,7 +101,6 @@ const Home = () => {
 
         setCategories(lessPrice?.data || []);
         setAds(adsData?.data || []);
-        setVitalOrgans(vitalOrganData?.data || []);
         setWomenAge(womenAgeData?.data || []);
         setWomenCare(womenCareData?.data || []);
         setMenAge(menAgeData?.data || []);
@@ -123,7 +117,6 @@ const Home = () => {
         // Use mock data as fallback
         setCategories(mockData.categories || []);
         setAds(mockData.ads || []);
-        setVitalOrgans(mockData.vitalOrgans || []);
         setWomenAge(mockData.womenCare || []); // Using womenCare for age-based
         setWomenCare(mockData.womenCare || []);
         setMenAge(mockData.menCare || []); // Using menCare for age-based
@@ -449,221 +442,192 @@ const Home = () => {
       </section>
 
       {/* Healthcare Banner Carousel */}
-      <section className="banner-carousel-section py-4">
+      <section className="banner-carousel-section">
         <div className="container-fluid">
-          <div className="carousel-container">
-            <div className="scrolling-carousel">
-              <div className="carousel-track">
-                {/* First set of banners */}
-                <div className="carousel-item">
-                  <img
-                    src="/images/banners/banner1.png"
-                    alt="Complete Health Checkup"
-                    className="carousel-banner-img"
-                    style={{
-                      width: "300px",
-                      height: "200px",
-                      objectFit: "cover",
-                      borderRadius: "8px",
-                      marginRight: "15px",
-                      display: "block",
-                    }}
-                  />
-                </div>
-                <div className="carousel-item">
-                  <img
-                    src="/images/banners/banner2.png"
-                    alt="Blood Test Package"
-                    className="carousel-banner-img"
-                    style={{
-                      width: "300px",
-                      height: "200px",
-                      objectFit: "cover",
-                      borderRadius: "8px",
-                      marginRight: "15px",
-                      display: "block",
-                    }}
-                  />
-                </div>
-                <div className="carousel-item">
-                  <img
-                    src="/images/banners/banner3.png"
-                    alt="Women's Health Checkup"
-                    className="carousel-banner-img"
-                    style={{
-                      width: "300px",
-                      height: "200px",
-                      objectFit: "cover",
-                      borderRadius: "8px",
-                      marginRight: "15px",
-                      display: "block",
-                    }}
-                  />
-                </div>
-                <div className="carousel-item">
-                  <img
-                    src="/images/banners/carousel-3/bann-1.png"
-                    alt="Premium Diagnostics"
-                    className="carousel-banner-img"
-                    style={{
-                      width: "300px",
-                      height: "200px",
-                      objectFit: "cover",
-                      borderRadius: "8px",
-                      marginRight: "15px",
-                      display: "block",
-                    }}
-                  />
-                </div>
-                <div className="carousel-item">
-                  <img
-                    src="/images/banners/carousel-3/bann-2.png"
-                    alt="Advanced Health Screening"
-                    className="carousel-banner-img"
-                    style={{
-                      width: "300px",
-                      height: "200px",
-                      objectFit: "cover",
-                      borderRadius: "8px",
-                      marginRight: "15px",
-                      display: "block",
-                    }}
-                  />
-                </div>
-
-                {/* Duplicate set for seamless loop */}
-                <div className="carousel-item">
-                  <img
-                    src="/images/banners/banner1.png"
-                    alt="Complete Health Checkup"
-                    className="carousel-banner-img"
-                    style={{
-                      width: "300px",
-                      height: "200px",
-                      objectFit: "cover",
-                      borderRadius: "8px",
-                      marginRight: "15px",
-                      display: "block",
-                    }}
-                  />
-                </div>
-                <div className="carousel-item">
-                  <img
-                    src="/images/banners/banner2.png"
-                    alt="Blood Test Package"
-                    className="carousel-banner-img"
-                    style={{
-                      width: "300px",
-                      height: "200px",
-                      objectFit: "cover",
-                      borderRadius: "8px",
-                      marginRight: "15px",
-                      display: "block",
-                    }}
-                  />
-                </div>
-                <div className="carousel-item">
-                  <img
-                    src="/images/banners/banner3.png"
-                    alt="Women's Health Checkup"
-                    className="carousel-banner-img"
-                    style={{
-                      width: "300px",
-                      height: "200px",
-                      objectFit: "cover",
-                      borderRadius: "8px",
-                      marginRight: "15px",
-                      display: "block",
-                    }}
-                  />
-                </div>
-                <div className="carousel-item">
-                  <img
-                    src="/images/banners/carousel-3/bann-1.png"
-                    alt="Premium Diagnostics"
-                    className="carousel-banner-img"
-                    style={{
-                      width: "300px",
-                      height: "200px",
-                      objectFit: "cover",
-                      borderRadius: "8px",
-                      marginRight: "15px",
-                      display: "block",
-                    }}
-                  />
-                </div>
-                <div className="carousel-item">
-                  <img
-                    src="/images/banners/carousel-3/bann-2.png"
-                    alt="Advanced Health Screening"
-                    className="carousel-banner-img"
-                    style={{
-                      width: "300px",
-                      height: "200px",
-                      objectFit: "cover",
-                      borderRadius: "8px",
-                      marginRight: "15px",
-                      display: "block",
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
+          <div
+            className="carousel-container"
+            style={{ justifyContent: "center", display: "flex" }}
+          >
+            <img
+              src="/banners/long-banner.png"
+              alt="Long Healthcare Banner"
+              className="carousel-banner-img"
+              style={{
+                width: "100%",
+                maxWidth: "1200px",
+                height: "auto",
+                objectFit: "cover",
+                borderRadius: "12px",
+                boxShadow: "0 4px 24px rgba(0,0,0,0.12)",
+              }}
+            />
           </div>
         </div>
       </section>
 
-      {/* Vital Organs Section */}
-      <section className="py-5">
-        <div className="container">
-          <div className="new-bg d-flex justify-content-between">
-            <h2 className="sec-1h text-start">Vital Organ Health Checkups</h2>
-            <Link className="view-all" to="/vital-organ">
-              View All
-            </Link>
+      <div className="scrolling-carousel">
+        <div className="carousel-track">
+          {/* First set of banners */}
+          <div className="carousel-item">
+            <img
+              src="/images/banners/banner1.png"
+              alt="Complete Health Checkup"
+              className="carousel-banner-img"
+              style={{
+                width: "300px",
+                height: "200px",
+                objectFit: "cover",
+                borderRadius: "8px",
+                marginRight: "15px",
+                display: "block",
+              }}
+            />
           </div>
-          <div className="row">
-            {vitalOrgans.length > 0 ? (
-              vitalOrgans.map((item, index) => (
-                <div
-                  key={index}
-                  className="col-lg-3 col-md-3 col-sm-6 col-6 my-lg-4 my-md-3 my-sm-1 my-1"
-                >
-                  <Link
-                    to={`/vital-organ?tab=${encodeURIComponent(item.name)}`}
-                  >
-                    <div className="test-cardmain">
-                      <div className="test-card text-center">
-                        <img
-                          className="test-cardimg vital-organ-img"
-                          src={getImageUrl(item.imagePath)}
-                          alt={item.name}
-                        />
-                        <h4 className="testcard-head">{item.name}</h4>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-              ))
-            ) : (
-              <div className="col-12">
-                <div
-                  style={{
-                    padding: "40px",
-                    textAlign: "center",
-                    backgroundColor: "#f8f9fa",
-                    borderRadius: "8px",
-                    border: "2px dashed #007c6f",
-                  }}
-                >
-                  <h4 style={{ color: "#007c6f" }}>Vital Organ Tests</h4>
-                  <p>Loading vital organ tests... Please wait.</p>
-                  <p style={{ fontSize: "14px", color: "#666" }}>
-                    Vital organs loaded: {vitalOrgans.length}
-                  </p>
-                </div>
-              </div>
-            )}
+          <div className="carousel-item">
+            <img
+              src="/images/banners/banner2.png"
+              alt="Blood Test Package"
+              className="carousel-banner-img"
+              style={{
+                width: "300px",
+                height: "200px",
+                objectFit: "cover",
+                borderRadius: "8px",
+                marginRight: "15px",
+                display: "block",
+              }}
+            />
+          </div>
+          <div className="carousel-item">
+            <img
+              src="/banners/banner3.png"
+              alt="Women's Health Checkup"
+              className="carousel-banner-img"
+              style={{
+                width: "300px",
+                height: "200px",
+                objectFit: "cover",
+                borderRadius: "8px",
+                marginRight: "15px",
+                display: "block",
+              }}
+            />
+          </div>
+          <div className="carousel-item">
+            <img
+              src="/banners/carousel-3/bann-1.png"
+              alt="Premium Diagnostics"
+              className="carousel-banner-img"
+              style={{
+                width: "300px",
+                height: "200px",
+                objectFit: "cover",
+                borderRadius: "8px",
+                marginRight: "15px",
+                display: "block",
+              }}
+            />
+          </div>
+          <div className="carousel-item">
+            <img
+              src="/banners/carousel-3/bann-2.png"
+              alt="Advanced Health Screening"
+              className="carousel-banner-img"
+              style={{
+                width: "300px",
+                height: "200px",
+                objectFit: "cover",
+                borderRadius: "8px",
+                marginRight: "15px",
+                display: "block",
+              }}
+            />
+          </div>
+
+          {/* Duplicate set for seamless loop */}
+          <div className="carousel-item">
+            <img
+              src="/banners/banner1.png"
+              alt="Complete Health Checkup"
+              className="carousel-banner-img"
+              style={{
+                width: "300px",
+                height: "200px",
+                objectFit: "cover",
+                borderRadius: "8px",
+                marginRight: "15px",
+                display: "block",
+              }}
+            />
+          </div>
+          <div className="carousel-item">
+            <img
+              src="/banners/banner2.png"
+              alt="Blood Test Package"
+              className="carousel-banner-img"
+              style={{
+                width: "300px",
+                height: "200px",
+                objectFit: "cover",
+                borderRadius: "8px",
+                marginRight: "15px",
+                display: "block",
+              }}
+            />
+          </div>
+          <div className="carousel-item">
+            <img
+              src="/banners/banner3.png"
+              alt="Women's Health Checkup"
+              className="carousel-banner-img"
+              style={{
+                width: "300px",
+                height: "200px",
+                objectFit: "cover",
+                borderRadius: "8px",
+                marginRight: "15px",
+                display: "block",
+              }}
+            />
+          </div>
+          <div className="carousel-item">
+            <img
+              src="/banners/carousel-3/bann-1.png"
+              alt="Premium Diagnostics"
+              className="carousel-banner-img"
+              style={{
+                width: "300px",
+                height: "200px",
+                objectFit: "cover",
+                borderRadius: "8px",
+                marginRight: "15px",
+                display: "block",
+              }}
+            />
+          </div>
+          <div className="carousel-item">
+            <img
+              src="/banners/carousel-3/bann-2.png"
+              alt="Advanced Health Screening"
+              className="carousel-banner-img"
+              style={{
+                width: "300px",
+                height: "200px",
+                objectFit: "cover",
+                borderRadius: "8px",
+                marginRight: "15px",
+                display: "block",
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Promotional Card Section */}
+      <section className="py-4">
+        <div className="container">
+          <div className="d-flex justify-content-center">
+            <PromotionalCard imageUrl="/images/banners/banner1.png" />
           </div>
         </div>
       </section>
