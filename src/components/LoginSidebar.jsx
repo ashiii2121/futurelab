@@ -110,6 +110,14 @@ const LoginSidebar = () => {
     <div className="collapse" id="sidebar">
       <div className="sidebar-content">
         <div className="login-form-container">
+          <div className="login-banner mb-4">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/verification.png`}
+              alt="Login Banner"
+              className="img-fluid"
+              style={{ maxWidth: "100%", height: "auto" }}
+            />
+          </div>
           {!showOtpForm ? (
             <form onSubmit={handlePhoneSubmit}>
               <h4>Login with Phone Number</h4>

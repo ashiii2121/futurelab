@@ -2,12 +2,15 @@
   "name": "futurelabs-react-app",
   "version": "1.0.0",
   "description": "React conversion of FutureLabs healthcare application",
+  "homepage": "https://ashiii2121.github.io/futurelab",
   "main": "src/index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "react-scripts start"
   },
   "dependencies": {
@@ -25,6 +28,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "autoprefixer": "^10.4.21",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.12"
   },

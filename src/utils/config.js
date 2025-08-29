@@ -1,15 +1,19 @@
 // Development mode - set to true to use mock data, false to use API
 export const USE_MOCK_DATA = true;
 
+// Public URL for assets (especially for GitHub Pages deployment)
+export const PUBLIC_URL = process.env.PUBLIC_URL || '';
+
+// Helper function to get correct image path
+export const getImagePath = (imagePath) => {
+    // Remove leading slash if present
+    const cleanPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
+    return `${PUBLIC_URL}/${cleanPath}`;
+};
+
 // API Configuration
 // Option 1: Local development server
 export const baseUrl = "http://localhost:5000";
-
-// Option 2: Remote server (if available)
-// export const baseUrl = "https://futurelab-etvr.onrender.com";
-
-// Option 3: Alternative server (if you have one)
-// export const baseUrl = "https://your-alternative-server.com";
 
 export const API_ENDPOINTS = {
   // Main banners

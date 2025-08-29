@@ -818,7 +818,7 @@ header {
 
 
 
-/*   /* sidebar */
+/* sidebar */
 .login-icon {
   height: auto;
   max-width: 100%;
@@ -1056,7 +1056,6 @@ header {
   font-weight: 700;
 }
 
-*/
 
 /* Sidebar */
 #sidebar {
@@ -1404,9 +1403,8 @@ padding: 4px 8px;
 width: 100%;
 border-radius: 20px;
 margin-top: 30px ;
-margin-bottom: 20px;
+  margin-bottom: 20px;
 }
- */
 
 
 #prescriptionForm label,

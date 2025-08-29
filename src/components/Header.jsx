@@ -27,12 +27,12 @@ const Header = () => {
             <div className="col-lg-4 col-md-5 col-sm-12 col-12">
               <Link to="/">
                 <img
-                  src="/images/logo/ft-logo.svg"
+                  src={`${process.env.PUBLIC_URL}/images/logo/ft-logo.svg`}
                   alt="FutureLabs"
                   className="logo"
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = "/images/logo/favicon.jpg";
+                    e.target.src = `${process.env.PUBLIC_URL}/images/logo/favicon.jpg`;
                   }}
                   style={{ maxHeight: "70px", width: "auto" }}
                 />
@@ -50,7 +50,7 @@ const Header = () => {
                 style={{ display: cartCount > 0 ? "inline-block" : "none" }}
               >
                 <img
-                  src="/images/icon-svg/cart.svg"
+                  src={`${process.env.PUBLIC_URL}/images/icon-svg/cart.svg`}
                   className="offers"
                   alt="Cart"
                 />
@@ -59,9 +59,9 @@ const Header = () => {
                 </span>
               </Link>
 
-              {/* Login button */}
+              {/* Login button - Desktop */}
               <button
-                className="login-button text-center"
+                className="login-button text-center d-none d-md-inline-block"
                 id="login-button-desktop"
                 data-bs-toggle="collapse"
                 data-bs-target="#sidebar"
@@ -69,7 +69,7 @@ const Header = () => {
                 aria-controls="sidebar"
               >
                 <img
-                  src="/images/icon-svg/login.svg"
+                  src={`${process.env.PUBLIC_URL}/images/icon-svg/login.svg`}
                   className="login-icon"
                   alt="Login"
                 />
@@ -87,12 +87,12 @@ const Header = () => {
             <div className="col-6 p-0">
               <Link to="/">
                 <img
-                  src="/images/logo/ft-logo.svg"
+                  src={`${process.env.PUBLIC_URL}/images/logo/ft-logo.svg`}
                   alt="FutureLabs"
                   className="logo"
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = "/images/logo/favicon.jpg";
+                    e.target.src = `${process.env.PUBLIC_URL}/images/logo/favicon.jpg`;
                   }}
                   style={{ maxHeight: "60px", width: "auto" }}
                 />
@@ -106,7 +106,7 @@ const Header = () => {
                 style={{ display: cartCount > 0 ? "inline-block" : "none" }}
               >
                 <img
-                  src="/images/icon-svg/cart.svg"
+                  src={`${process.env.PUBLIC_URL}/images/icon-svg/cart.svg`}
                   className="offers"
                   alt="Cart"
                 />
@@ -116,7 +116,7 @@ const Header = () => {
               </Link>
 
               <button
-                className="login-button text-center"
+                className="login-button text-center d-md-none"
                 id="login-button-mobile"
                 data-bs-toggle="collapse"
                 data-bs-target="#sidebar"
@@ -124,7 +124,7 @@ const Header = () => {
                 aria-controls="sidebar"
               >
                 <img
-                  src="/images/icon-svg/login.svg"
+                  src={`${process.env.PUBLIC_URL}/images/icon-svg/login.svg`}
                   className="login-icon"
                   alt="Login"
                 />

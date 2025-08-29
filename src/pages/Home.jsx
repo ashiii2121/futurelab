@@ -20,8 +20,9 @@ const Home = () => {
   // Helper function to get correct image URL
   const getImageUrl = (imagePath) => {
     if (USE_MOCK_DATA) {
-      // For mock data, use images from public folder
-      return `/${imagePath}`;
+      // For mock data, use images from public folder with PUBLIC_URL
+      const path = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
+      return `${process.env.PUBLIC_URL}/${path}`;
     } else {
       // For API data, use baseUrl
       return `${baseUrl}/${imagePath}`;
