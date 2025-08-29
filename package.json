@@ -2,7 +2,6 @@
   "name": "futurelabs-react-app",
   "version": "1.0.0",
   "description": "React conversion of FutureLabs healthcare application",
-  "homepage": "https://ashiii2121.github.io/futurelab",
   "main": "src/index.js",
   "scripts": {
     "start": "react-scripts start",
@@ -43,6 +42,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "https://futurelab-etvr.onrender.com"
+  }
 }

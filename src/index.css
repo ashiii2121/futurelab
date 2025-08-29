@@ -650,6 +650,352 @@ a.text-black:hover {
   box-shadow: 0 20px 40px rgba(0, 124, 111, 0.15);
 }
 
+/* Enhanced Offer Card Styles */
+.offer-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);
+  border: 2px solid #e8f5f2;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 8px 25px rgba(0, 124, 111, 0.1);
+  height: 100%;
+}
+
+.offer-card:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 0 25px 50px rgba(0, 124, 111, 0.2);
+  border-color: #007c6f;
+}
+
+.popular-card {
+  border: 3px solid #007c6f;
+  background: linear-gradient(135deg, #e8f5f2 0%, #ffffff 100%);
+  box-shadow: 0 12px 35px rgba(0, 124, 111, 0.15);
+}
+
+.popular-card::after {
+  content: '⭐ MOST POPULAR';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #007c6f, #20c997);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  z-index: 3;
+}
+
+/* Offer Badge Styles */
+.offer-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 2;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  animation: pulse 2s infinite;
+}
+
+.badge-premium {
+  background: linear-gradient(135deg, #6f42c1, #8f5fe8);
+  color: white;
+  box-shadow: 0 4px 15px rgba(111, 66, 193, 0.3);
+}
+
+.badge-trending {
+  background: linear-gradient(135deg, #fd7e14, #ff922b);
+  color: white;
+  box-shadow: 0 4px 15px rgba(253, 126, 20, 0.3);
+}
+
+.badge-new {
+  background: linear-gradient(135deg, #20c997, #51cf66);
+  color: white;
+  box-shadow: 0 4px 15px rgba(32, 201, 151, 0.3);
+}
+
+.badge-recommended {
+  background: linear-gradient(135deg, #007c6f, #20c997);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 124, 111, 0.3);
+}
+
+.badge-popular {
+  background: linear-gradient(135deg, #e83e8c, #fd5995);
+  color: white;
+  box-shadow: 0 4px 15px rgba(232, 62, 140, 0.3);
+}
+
+.badge-exclusive {
+  background: linear-gradient(135deg, #495057, #6c757d);
+  color: white;
+  box-shadow: 0 4px 15px rgba(73, 80, 87, 0.3);
+}
+
+/* Pricing Section */
+.pricing-section {
+  margin-bottom: 1.5rem;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.original-price {
+  font-size: 1rem;
+  color: #6c757d;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.discount-badge {
+  background: linear-gradient(135deg, #dc3545, #e63946);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  animation: bounce 1s infinite;
+}
+
+.discounted-price {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #007c6f;
+  background: linear-gradient(135deg, #007c6f, #20c997);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Features List */
+.features-list {
+  margin-bottom: 1.5rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.feature-icon {
+  color: #007c6f;
+  font-weight: bold;
+  margin-right: 8px;
+  background: linear-gradient(135deg, #007c6f, #20c997);
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+.feature-text {
+  color: #495057;
+  font-weight: 500;
+}
+
+/* Offer Description */
+.offer-description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #6c757d;
+}
+
+.offer-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 1rem;
+}
+
+/* CTA Button */
+.offer-cta-btn {
+  background: linear-gradient(135deg, #007c6f, #20c997);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 700;
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.offer-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.offer-cta-btn:hover::before {
+  left: 100%;
+}
+
+.offer-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 124, 111, 0.3);
+  background: linear-gradient(135deg, #20c997, #007c6f);
+}
+
+.btn-text {
+  margin-right: 8px;
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+}
+
+/* See More Button */
+.see-more-btn {
+  background: linear-gradient(135deg, #495057, #6c757d);
+  border: none;
+  border-radius: 50px;
+  padding: 15px 35px;
+  font-weight: 700;
+  color: white;
+  transition: all 0.4s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.see-more-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.see-more-btn:hover::before {
+  left: 100%;
+}
+
+.see-more-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(73, 80, 87, 0.3);
+  background: linear-gradient(135deg, #6c757d, #495057);
+}
+
+/* Additional Offers Animation */
+.additional-offers {
+  margin-top: 2rem;
+}
+
+.offer-slide-in {
+  animation: slideInUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animations */
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-4px);
+  }
+
+  60% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .offer-card {
+    margin-bottom: 2rem;
+  }
+
+  .offers-title {
+    font-size: 2rem;
+  }
+
+  .offer-title {
+    font-size: 1.2rem;
+  }
+
+  .discounted-price {
+    font-size: 1.5rem;
+  }
+
+  .offer-cta-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .offers-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .offer-card {
+    padding: 1.5rem;
+  }
+
+  .popular-card::after {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+}
+
 .premium-card {
   background: linear-gradient(135deg, #f0fdf8 0%, #f8fdff 100%);
   border: 2px solid #007c6f;

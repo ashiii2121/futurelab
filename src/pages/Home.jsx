@@ -136,9 +136,105 @@ const Home = () => {
     fetchData();
   }, []);
 
+  const [showAllOffers, setShowAllOffers] = useState(false);
   const [pinCode, setPinCode] = useState("");
   const [serviceAvailable, setServiceAvailable] = useState(null);
   const [checkingService, setCheckingService] = useState(false);
+
+  const specialOffers = [
+    {
+      id: 1,
+      title: "Premium Health Package",
+      originalPrice: 2999,
+      discountedPrice: 1999,
+      discount: 33,
+      badge: "PREMIUM",
+      badgeColor: "premium",
+      features: [
+        "Complete Blood Count",
+        "Lipid Profile",
+        "Liver Function",
+        "Kidney Function",
+      ],
+      description: "Comprehensive health screening for overall wellness",
+      popular: true,
+    },
+    {
+      id: 2,
+      title: "Women's Wellness Special",
+      originalPrice: 3499,
+      discountedPrice: 2299,
+      discount: 34,
+      badge: "TRENDING",
+      badgeColor: "trending",
+      features: [
+        "Hormonal Analysis",
+        "Thyroid Profile",
+        "Vitamin D",
+        "Iron Studies",
+      ],
+      description: "Specialized health checkup designed for women's needs",
+      popular: false,
+    },
+    {
+      id: 3,
+      title: "Cardiac Care Package",
+      originalPrice: 2799,
+      discountedPrice: 1899,
+      discount: 32,
+      badge: "NEW",
+      badgeColor: "new",
+      features: ["ECG", "2D Echo", "Lipid Profile", "Cardiac Risk Markers"],
+      description: "Complete cardiovascular health assessment",
+      popular: false,
+    },
+    {
+      id: 4,
+      title: "Diabetes Complete",
+      originalPrice: 1899,
+      discountedPrice: 1299,
+      discount: 32,
+      badge: "RECOMMENDED",
+      badgeColor: "recommended",
+      features: ["HbA1c", "Fasting Glucose", "Post Meal Glucose", "Insulin"],
+      description: "Comprehensive diabetes monitoring package",
+      popular: false,
+    },
+    {
+      id: 5,
+      title: "Senior Citizen Special",
+      originalPrice: 4999,
+      discountedPrice: 3499,
+      discount: 30,
+      badge: "POPULAR",
+      badgeColor: "popular",
+      features: [
+        "Full Body Checkup",
+        "Bone Health",
+        "Cognitive Assessment",
+        "Eye Screening",
+      ],
+      description: "Complete health package for seniors above 60",
+      popular: false,
+    },
+    {
+      id: 6,
+      title: "Executive Health Checkup",
+      originalPrice: 5999,
+      discountedPrice: 3999,
+      discount: 33,
+      badge: "EXCLUSIVE",
+      badgeColor: "exclusive",
+      features: [
+        "Advanced Imaging",
+        "Stress Test",
+        "Nutritional Analysis",
+        "Health Consultation",
+      ],
+      description: "Premium executive health screening with consultation",
+      popular: false,
+    },
+  ];
 
   const handlePinCodeCheck = async (e) => {
     e.preventDefault();
@@ -624,28 +720,178 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Special Offers Section */}
+      {/* Enhanced Special Offers Section */}
       <section className="special-offers-section py-5">
         <div className="container">
           <div className="row">
             <div className="col-12">
               <div className="special-offers-container">
                 {/* Header */}
-                <div className="offers-header text-center mb-4">
-                  <h2 className="offers-title">
+                <div className="offers-header text-center mb-5">
+                  <h2 className="offers-title mb-3">
                     <span className="gradient-text">🎉 Special Offers</span>
                   </h2>
-                  <p className="offers-subtitle">
-                    Limited time deals on health checkups & lab tests
+                  <p className="offers-subtitle text-muted">
+                    Limited time deals on health checkups & lab tests - Save up
+                    to 35%!
                   </p>
                 </div>
 
-                {/* See More Button */}
-                <div className="text-center mt-4">
-                  <Link to="/checkups" className="btn see-more-btn">
-                    <span className="btn-text">See All Offers</span>
-                    <span className="btn-icon">→</span>
-                  </Link>
+                {/* Offers Grid */}
+                <div className="offers-grid">
+                  <div className="row">
+                    {/* Display first 3 offers */}
+                    {specialOffers.slice(0, 3).map((offer, index) => (
+                      <div
+                        key={offer.id}
+                        className="col-lg-4 col-md-6 col-12 mb-4"
+                      >
+                        <div
+                          className={`offer-card ${
+                            offer.popular ? "popular-card" : ""
+                          }`}
+                        >
+                          {/* Badge */}
+                          <div
+                            className={`offer-badge badge-${offer.badgeColor}`}
+                          >
+                            <span className="badge-text">{offer.badge}</span>
+                          </div>
+
+                          {/* Card Content */}
+                          <div className="card-content p-4">
+                            <h4 className="offer-title mb-3">{offer.title}</h4>
+
+                            {/* Pricing */}
+                            <div className="pricing-section mb-3">
+                              <div className="price-row">
+                                <span className="original-price">
+                                  ₹{offer.originalPrice.toLocaleString()}
+                                </span>
+                                <span className="discount-badge">
+                                  {offer.discount}% OFF
+                                </span>
+                              </div>
+                              <div className="discounted-price">
+                                ₹{offer.discountedPrice.toLocaleString()}
+                              </div>
+                            </div>
+
+                            {/* Features */}
+                            <div className="features-list mb-4">
+                              {offer.features.map((feature, idx) => (
+                                <div key={idx} className="feature-item">
+                                  <span className="feature-icon">✓</span>
+                                  <span className="feature-text">
+                                    {feature}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+
+                            {/* Description */}
+                            <p className="offer-description text-muted mb-4">
+                              {offer.description}
+                            </p>
+
+                            {/* CTA Button */}
+                            <Link
+                              to="/checkups"
+                              className="btn offer-cta-btn w-100"
+                            >
+                              <span className="btn-text">Book Now</span>
+                              <span className="btn-icon">🔬</span>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Additional offers (initially hidden) */}
+                  {showAllOffers && (
+                    <div className="row additional-offers">
+                      {specialOffers.slice(3).map((offer, index) => (
+                        <div
+                          key={offer.id}
+                          className="col-lg-4 col-md-6 col-12 mb-4 offer-slide-in"
+                          style={{ animationDelay: `${index * 0.1}s` }}
+                        >
+                          <div className="offer-card">
+                            {/* Badge */}
+                            <div
+                              className={`offer-badge badge-${offer.badgeColor}`}
+                            >
+                              <span className="badge-text">{offer.badge}</span>
+                            </div>
+
+                            {/* Card Content */}
+                            <div className="card-content p-4">
+                              <h4 className="offer-title mb-3">
+                                {offer.title}
+                              </h4>
+
+                              {/* Pricing */}
+                              <div className="pricing-section mb-3">
+                                <div className="price-row">
+                                  <span className="original-price">
+                                    ₹{offer.originalPrice.toLocaleString()}
+                                  </span>
+                                  <span className="discount-badge">
+                                    {offer.discount}% OFF
+                                  </span>
+                                </div>
+                                <div className="discounted-price">
+                                  ₹{offer.discountedPrice.toLocaleString()}
+                                </div>
+                              </div>
+
+                              {/* Features */}
+                              <div className="features-list mb-4">
+                                {offer.features.map((feature, idx) => (
+                                  <div key={idx} className="feature-item">
+                                    <span className="feature-icon">✓</span>
+                                    <span className="feature-text">
+                                      {feature}
+                                    </span>
+                                  </div>
+                                ))}
+                              </div>
+
+                              {/* Description */}
+                              <p className="offer-description text-muted mb-4">
+                                {offer.description}
+                              </p>
+
+                              {/* CTA Button */}
+                              <Link
+                                to="/checkups"
+                                className="btn offer-cta-btn w-100"
+                              >
+                                <span className="btn-text">Book Now</span>
+                                <span className="btn-icon">🔬</span>
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Toggle Button */}
+                <div className="text-center mt-5">
+                  <button
+                    className="btn see-more-btn"
+                    onClick={() => setShowAllOffers(!showAllOffers)}
+                  >
+                    <span className="btn-text">
+                      {showAllOffers ? "Show Less Offers" : "See All Offers"}
+                    </span>
+                    <span className="btn-icon">
+                      {showAllOffers ? "↑" : "↓"}
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
