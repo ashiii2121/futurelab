@@ -145,10 +145,6 @@ const Footer = () => {
               futurelab.live
             </a>
             <br />
-            <h6 className="copy-right">
-              Copyright © 2024 All Rights Reserved. <br /> 
-              Design By <a href="https://admizzer.com/">admizzer.com</a>
-            </h6>
           </div>
 
           {/* Disclaimer */}
