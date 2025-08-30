@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ShoppingCart } from "react-feather";
 import { baseUrl, API_ENDPOINTS, USE_MOCK_DATA } from "../utils/config";
 import { mockData } from "../utils/mockData";
+import MakeYourOwnPackage from "../components/MakeYourOwnPackage";
 import PromotionalCard from "../components/PromotionalCard";
 
 const Home = () => {
@@ -539,30 +541,8 @@ const Home = () => {
       </section>
 
       {/* Healthcare Banner Carousel */}
-      <section className="banner-carousel-section">
-        <div className="container-fluid">
-          <div
-            className="carousel-container"
-            style={{ justifyContent: "center", display: "flex" }}
-          >
-            <img
-              src={`${process.env.PUBLIC_URL}/images/banners/sec2-banner.png`}
-              alt="Long Healthcare Banner"
-              className="carousel-banner-img"
-              style={{
-                width: "100%",
-                maxWidth: "1200px",
-                height: "auto",
-                objectFit: "cover",
-                borderRadius: "12px",
-                boxShadow: "0 4px 24px rgba(0,0,0,0.12)",
-              }}
-            />
-          </div>
-        </div>
-      </section>
 
-      <div className="scrolling-carousel">
+      <div className="scrolling-carousel" style={{ backgroundColor: "white" }}>
         <div className="carousel-track">
           {/* First set of banners */}
           <div className="carousel-item">
@@ -598,114 +578,7 @@ const Home = () => {
           <div className="carousel-item">
             <img
               src="/banners/banner3.png"
-              alt="Women's Health Checkup"
-              className="carousel-banner-img"
-              style={{
-                width: "300px",
-                height: "200px",
-                objectFit: "cover",
-                borderRadius: "8px",
-                marginRight: "15px",
-                display: "block",
-              }}
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="/banners/carousel-3/bann-1.png"
-              alt="Premium Diagnostics"
-              className="carousel-banner-img"
-              style={{
-                width: "300px",
-                height: "200px",
-                objectFit: "cover",
-                borderRadius: "8px",
-                marginRight: "15px",
-                display: "block",
-              }}
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="/banners/carousel-3/bann-2.png"
-              alt="Advanced Health Screening"
-              className="carousel-banner-img"
-              style={{
-                width: "300px",
-                height: "200px",
-                objectFit: "cover",
-                borderRadius: "8px",
-                marginRight: "15px",
-                display: "block",
-              }}
-            />
-          </div>
-
-          {/* Duplicate set for seamless loop */}
-          <div className="carousel-item">
-            <img
-              src="/banners/banner1.png"
-              alt="Complete Health Checkup"
-              className="carousel-banner-img"
-              style={{
-                width: "300px",
-                height: "200px",
-                objectFit: "cover",
-                borderRadius: "8px",
-                marginRight: "15px",
-                display: "block",
-              }}
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="/banners/banner2.png"
-              alt="Blood Test Package"
-              className="carousel-banner-img"
-              style={{
-                width: "300px",
-                height: "200px",
-                objectFit: "cover",
-                borderRadius: "8px",
-                marginRight: "15px",
-                display: "block",
-              }}
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="/banners/banner3.png"
-              alt="Women's Health Checkup"
-              className="carousel-banner-img"
-              style={{
-                width: "300px",
-                height: "200px",
-                objectFit: "cover",
-                borderRadius: "8px",
-                marginRight: "15px",
-                display: "block",
-              }}
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="/banners/carousel-3/bann-1.png"
-              alt="Premium Diagnostics"
-              className="carousel-banner-img"
-              style={{
-                width: "300px",
-                height: "200px",
-                objectFit: "cover",
-                borderRadius: "8px",
-                marginRight: "15px",
-                display: "block",
-              }}
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="/banners/carousel-3/bann-2.png"
-              alt="Advanced Health Screening"
+              alt="Banner 3"
               className="carousel-banner-img"
               style={{
                 width: "300px",
@@ -719,349 +592,284 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-      {/* Enhanced Special Offers Section */}
       <section className="special-offers-section py-5">
         <div className="container">
           <div className="row">
             <div className="col-12">
               <div className="special-offers-container">
                 {/* Header */}
-                <div className="offers-header text-center mb-5">
-                  <h2 className="offers-title mb-3">
-                    <span className="gradient-text">🎉 Special Offers</span>
-                  </h2>
-                  <p className="offers-subtitle text-muted">
-                    Limited time deals on health checkups & lab tests - Save up
-                    to 35%!
-                  </p>
-                </div>
-
-                {/* Offers Grid */}
-                <div className="offers-grid">
-                  <div className="row">
-                    {/* Display first 3 offers */}
-                    {specialOffers.slice(0, 3).map((offer, index) => (
-                      <div
-                        key={offer.id}
-                        className="col-lg-4 col-md-6 col-12 mb-4"
-                      >
-                        <div
-                          className={`offer-card ${
-                            offer.popular ? "popular-card" : ""
-                          }`}
-                        >
-                          {/* Badge */}
-                          <div
-                            className={`offer-badge badge-${offer.badgeColor}`}
-                          >
-                            <span className="badge-text">{offer.badge}</span>
-                          </div>
-
-                          {/* Card Content */}
-                          <div className="card-content p-4">
-                            <h4 className="offer-title mb-3">{offer.title}</h4>
-
-                            {/* Pricing */}
-                            <div className="pricing-section mb-3">
-                              <div className="price-row">
-                                <span className="original-price">
-                                  ₹{offer.originalPrice.toLocaleString()}
-                                </span>
-                                <span className="discount-badge">
-                                  {offer.discount}% OFF
-                                </span>
-                              </div>
-                              <div className="discounted-price">
-                                ₹{offer.discountedPrice.toLocaleString()}
-                              </div>
-                            </div>
-
-                            {/* Features */}
-                            <div className="features-list mb-4">
-                              {offer.features.map((feature, idx) => (
-                                <div key={idx} className="feature-item">
-                                  <span className="feature-icon">✓</span>
-                                  <span className="feature-text">
-                                    {feature}
-                                  </span>
-                                </div>
-                              ))}
-                            </div>
-
-                            {/* Description */}
-                            <p className="offer-description text-muted mb-4">
-                              {offer.description}
-                            </p>
-
-                            {/* CTA Button */}
-                            <Link
-                              to="/checkups"
-                              className="btn offer-cta-btn w-100"
-                            >
-                              <span className="btn-text">Book Now</span>
-                              <span className="btn-icon">🔬</span>
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
+                <div className="offers-header d-flex justify-content-between align-items-center mb-5">
+                  <div>
+                    <h2 className="offers-title mb-3">
+                      <span className="gradient-text">🎉 Special Offers</span>
+                    </h2>
+                    <p className="offers-subtitle text-muted">
+                      Limited time deals on health checkups & lab tests - Save
+                      up to 35%!
+                    </p>
                   </div>
-
-                  {/* Additional offers (initially hidden) */}
-                  {showAllOffers && (
-                    <div className="row additional-offers">
-                      {specialOffers.slice(3).map((offer, index) => (
-                        <div
-                          key={offer.id}
-                          className="col-lg-4 col-md-6 col-12 mb-4 offer-slide-in"
-                          style={{ animationDelay: `${index * 0.1}s` }}
-                        >
-                          <div className="offer-card">
-                            {/* Badge */}
-                            <div
-                              className={`offer-badge badge-${offer.badgeColor}`}
-                            >
-                              <span className="badge-text">{offer.badge}</span>
-                            </div>
-
-                            {/* Card Content */}
-                            <div className="card-content p-4">
-                              <h4 className="offer-title mb-3">
-                                {offer.title}
-                              </h4>
-
-                              {/* Pricing */}
-                              <div className="pricing-section mb-3">
-                                <div className="price-row">
-                                  <span className="original-price">
-                                    ₹{offer.originalPrice.toLocaleString()}
-                                  </span>
-                                  <span className="discount-badge">
-                                    {offer.discount}% OFF
-                                  </span>
-                                </div>
-                                <div className="discounted-price">
-                                  ₹{offer.discountedPrice.toLocaleString()}
-                                </div>
-                              </div>
-
-                              {/* Features */}
-                              <div className="features-list mb-4">
-                                {offer.features.map((feature, idx) => (
-                                  <div key={idx} className="feature-item">
-                                    <span className="feature-icon">✓</span>
-                                    <span className="feature-text">
-                                      {feature}
-                                    </span>
-                                  </div>
-                                ))}
-                              </div>
-
-                              {/* Description */}
-                              <p className="offer-description text-muted mb-4">
-                                {offer.description}
-                              </p>
-
-                              {/* CTA Button */}
-                              <Link
-                                to="/checkups"
-                                className="btn offer-cta-btn w-100"
-                              >
-                                <span className="btn-text">Book Now</span>
-                                <span className="btn-icon">🔬</span>
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Toggle Button */}
-                <div className="text-center mt-5">
-                  <button
-                    className="btn see-more-btn"
-                    onClick={() => setShowAllOffers(!showAllOffers)}
-                  >
-                    <span className="btn-text">
-                      {showAllOffers ? "Show Less Offers" : "See All Offers"}
-                    </span>
-                    <span className="btn-icon">
-                      {showAllOffers ? "↑" : "↓"}
-                    </span>
-                  </button>
+                  <Link to="/offers" className="btn btn-outline-primary">
+                    View All
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Promotional Card Section */}
-      <section className="py-4">
-        <div className="container">
-          <div className="d-flex justify-content-center">
-            <PromotionalCard imageUrl="/images/banners/banner1.png" />
-          </div>
-        </div>
-      </section>
-
-      {/* Sliding Text Section Above Women Care */}
-      <section className="sliding-text-section py-3">
-        <div className="sliding-text-container">
-          <div className="sliding-text">
-            🌸 Women's Health Matters | 💖 Comprehensive Care for Every Woman |
-            ✨ Preventive Health Checkups | 🔬 Advanced Diagnostics | 💪
-            Empowering Women's Wellness | 🩺 Expert Healthcare Solutions | 🌺
-            Your Health, Our Priority | 💫 Trusted by Thousands of Women | 🌸
-            Women's Health Matters | 💖 Comprehensive Care for Every Woman | ✨
-            Preventive Health Checkups | 🔬 Advanced Diagnostics | 💪 Empowering
-            Women's Wellness | 🩺 Expert Healthcare Solutions | 🌺 Your Health,
-            Our Priority | 💫 Trusted by Thousands of Women
-          </div>
-        </div>
-      </section>
-
-      {/* Women Care Section */}
-      <section className="py-5">
-        <div className="container">
-          <div className="new-bg d-flex justify-content-between">
-            <h2 className="sec-1h text-start">Women Care</h2>
-            <Link className="view-all" to="/woman-care">
-              View All
-            </Link>
-          </div>
-          <div className="row" id="women-care-section">
-            {womenCare.map((item, index) => (
+          <section>
+            <div
+              style={{
+                maxWidth: "400px",
+                margin: "20px auto",
+                fontFamily: "Arial, sans-serif",
+              }}
+            >
               <div
-                key={index}
-                className="col-lg-3 col-md-3 col-sm-6 col-6 my-lg-4 my-md-3 my-sm-1 my-1"
+                style={{
+                  border: "4px solid #059669",
+                  borderRadius: "20px",
+                  backgroundColor: "white",
+                  overflow: "hidden",
+                  boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
+                }}
               >
-                <Link to={`/woman-care?tab=${encodeURIComponent(item.name)}`}>
-                  <div className="test-cardmain">
-                    <div className="test-card text-center">
-                      <img
-                        className="test-cardimg"
-                        src={getImageUrl(item.imagePath)}
-                        alt={item.name}
-                      />
-                      <h4 className="testcard-head">{item.name}</h4>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Men Care Section */}
-      <section className="py-5">
-        <div className="container">
-          <div className="new-bg d-flex justify-content-between">
-            <h2 className="sec-1h text-start">Men Care</h2>
-            <Link className="view-all" to="/men-care">
-              View All
-            </Link>
-          </div>
-          <div className="row">
-            {menCare.map((item, index) => (
-              <div
-                key={index}
-                className="col-lg-3 col-md-3 col-sm-6 col-6 my-lg-4 my-md-3 my-sm-1 my-1"
-              >
-                <Link to={`/men-care?tab=${encodeURIComponent(item.name)}`}>
-                  <div className="test-cardmain">
-                    <div className="test-card text-center">
-                      <img
-                        className="test-cardimg"
-                        src={getImageUrl(item.imagePath)}
-                        alt={item.name}
-                      />
-                      <h4 className="testcard-head">{item.name}</h4>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Lifestyle Section */}
-      <section className="py-5">
-        <div className="container">
-          <div className="new-bg d-flex justify-content-between">
-            <h2 className="sec-1h text-start">Lifestyle Health Checkups</h2>
-            <Link className="view-all" to="/lifestyle-health-checkup">
-              View All
-            </Link>
-          </div>
-          <div className="row">
-            {lifestyle.map((item, index) => (
-              <div
-                key={index}
-                className="col-lg-3 col-md-3 col-sm-6 col-6 my-lg-4 my-md-3 my-sm-1 my-1"
-              >
-                <Link
-                  to={`/lifestyle-health-checkup?tab=${encodeURIComponent(
-                    item.name
-                  )}`}
+                {/* Header Section */}
+                <div
+                  style={{
+                    padding: "20px 20px 0 20px",
+                    textAlign: "center",
+                  }}
                 >
-                  <div className="test-cardmain">
-                    <div className="test-card text-center">
-                      <img
-                        className="test-cardimg"
-                        src={getImageUrl(item.imagePath)}
-                        alt={item.name}
-                      />
-                      <h4 className="testcard-head">{item.name}</h4>
+                  <h2
+                    style={{
+                      color: "#DC2626",
+                      fontSize: "24px",
+                      fontWeight: "bold",
+                      margin: "0 0 20px 0",
+                      lineHeight: "1.2",
+                    }}
+                  >
+                    Full Body Checkup +<br />1 Special Profile Test FREE
+                  </h2>
+                </div>
+
+                {/* Content Section */}
+                <div
+                  style={{
+                    padding: "0 20px 20px 20px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "20px",
+                  }}
+                >
+                  {/* Left Content */}
+                  <div style={{ flex: 1 }}>
+                    {/* Test Count */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                        marginBottom: "15px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: "30px",
+                          height: "30px",
+                          backgroundColor: "#10B981",
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            backgroundColor: "#34D399",
+                            borderRadius: "50%",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              position: "absolute",
+                              top: "50%",
+                              left: "50%",
+                              transform: "translate(-50%, -50%)",
+                              width: "8px",
+                              height: "12px",
+                              backgroundColor: "white",
+                              borderRadius: "2px",
+                            }}
+                          ></div>
+                        </div>
+                      </div>
+                      <span
+                        style={{
+                          color: "#D97706",
+                          fontSize: "16px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        103 Test
+                      </span>
+                    </div>
+
+                    {/* Know More Button */}
+                    <button
+                      style={{
+                        backgroundColor: "#1E3A8A",
+                        color: "white",
+                        border: "none",
+                        borderRadius: "25px",
+                        padding: "12px 30px",
+                        fontSize: "18px",
+                        fontWeight: "bold",
+                        cursor: "pointer",
+                        marginBottom: "15px",
+                        boxShadow: "0 4px 12px rgba(30,58,138,0.3)",
+                      }}
+                    >
+                      Know More
+                    </button>
+
+                    {/* Price Section */}
+                    <div>
+                      <div
+                        style={{
+                          color: "#DC2626",
+                          fontSize: "36px",
+                          fontWeight: "bold",
+                          lineHeight: "1",
+                          marginBottom: "5px",
+                        }}
+                      >
+                        ₹999
+                      </div>
+
+                      <div
+                        style={{
+                          color: "#374151",
+                          fontSize: "16px",
+                          fontWeight: "bold",
+                          marginBottom: "8px",
+                        }}
+                      >
+                        Exclusive offer
+                      </div>
+
+                      <div
+                        style={{
+                          color: "#D97706",
+                          fontSize: "18px",
+                          fontWeight: "bold",
+                          textDecoration: "line-through",
+                          textDecorationColor: "#374151",
+                          textDecorationThickness: "2px",
+                        }}
+                      >
+                        ₹2299
+                      </div>
                     </div>
                   </div>
-                </Link>
+
+                  {/* Right Image Section */}
+                  <div style={{ flexShrink: 0 }}>
+                    <div
+                      style={{
+                        width: "140px",
+                        height: "160px",
+                        backgroundColor: "#FEF3C7",
+                        borderRadius: "15px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        position: "relative",
+                        overflow: "hidden",
+                      }}
+                    >
+                      {/* Woman illustration placeholder */}
+                      <div
+                        style={{
+                          fontSize: "80px",
+                          filter: "sepia(1) saturate(2) hue-rotate(10deg)",
+                        }}
+                      >
+                        👩‍🦰
+                      </div>
+
+                      {/* Pointing gesture */}
+                      <div
+                        style={{
+                          position: "absolute",
+                          bottom: "20px",
+                          right: "10px",
+                          fontSize: "24px",
+                          transform: "rotate(-10deg)",
+                        }}
+                      >
+                        👉
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Add to Cart Button */}
+                <div
+                  style={{
+                    backgroundColor: "#059669",
+                    padding: "18px",
+                    textAlign: "center",
+                    position: "relative",
+                  }}
+                >
+                  <button
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "none",
+                      color: "white",
+                      fontSize: "24px",
+                      fontWeight: "bold",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "10px",
+                      width: "100%",
+                    }}
+                  >
+                    <ShoppingCart size={28} />
+                    ADD TO CART
+                  </button>
+
+                  {/* Arrow indicator */}
+                </div>
               </div>
-            ))}
-          </div>
+
+              {/* Discount Badge */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "10px",
+                  right: "10px",
+                  backgroundColor: "#DC2626",
+                  color: "white",
+                  padding: "8px 12px",
+                  borderRadius: "20px",
+                  fontSize: "12px",
+                  fontWeight: "bold",
+                  transform: "rotate(15deg)",
+                  boxShadow: "0 2px 8px rgba(220,38,38,0.3)",
+                }}
+              ></div>
+            </div>
+          </section>
         </div>
       </section>
 
-      {/* Section 3 - Special Care Packages */}
-      <section className="py-5">
-        <div className="container">
-          <div className="new-bg d-flex justify-content-between">
-            <h2 className="sec-1h text-start">Special Care Packages</h2>
-            <Link className="view-all" to="/special-care">
-              View All
-            </Link>
-          </div>
-        </div>
-        <div className="prd-carouse-m special-carousel">
-          <div className="row">
-            {specialCare.map((item, index) => (
-              <div
-                key={index}
-                className="col-lg-3 col-md-4 col-sm-6 col-6 my-2"
-              >
-                <Link to={`/product?id=${item._id}&category=${item.category}`}>
-                  <div className="test-cardmain">
-                    <div className="test-card text-center">
-                      <img
-                        className="test-cardimg"
-                        src={getImageUrl(item.imagePath)}
-                        alt={item.name}
-                      />
-                      <h5 className="testcard-head">{item.name}</h5>
-                      <p className="text-muted">₹{item.price}</p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <MakeYourOwnPackage />
 
       {/* Section 4 - Statistics */}
       <section className="sec4">
@@ -1152,144 +960,6 @@ const Home = () => {
                   alt={ad.title}
                   loading="lazy"
                 />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 7 - Women Health Banner */}
-      <section className="sec7 mt-5 mb-lg-4 mb-md-2">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-5 col-md-5 col-sm-4 col-4">
-              <img
-                className="sec7-img"
-                src="/images/banners/sec7woman.png"
-                alt=""
-              />
-            </div>
-            <div className="col-lg-7 col-md-7 col-sm-8 col-8 d-flex justify-content-center align-items-center">
-              <h2 className="sec7-h2">
-                Women <br /> Health & Wellness
-              </h2>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Women Age Based Section */}
-      <section>
-        <div className="d-flex justify-content-end pb-lg-3 pb-md-2 px-lg-5 px-md-4 px-sm-3 px-3">
-          <Link className="view-all" to="/woman-care">
-            View All
-          </Link>
-        </div>
-        <div className="carousel-5-m women-carousel">
-          <div className="row">
-            {womenAge.map((item, index) => (
-              <div
-                key={index}
-                className="col-lg-3 col-md-4 col-sm-6 col-6 my-2"
-              >
-                <Link to={`/woman-care?tab=${encodeURIComponent(item.name)}`}>
-                  <div className="test-cardmain">
-                    <div className="test-card text-center">
-                      <img
-                        className="test-cardimg"
-                        src={getImageUrl(item.imagePath)}
-                        alt={item.name}
-                      />
-                      <h4 className="testcard-head">{item.name}</h4>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Men Health Banner */}
-      <section className="sec8 mt-5 mb-lg-4 mb-md-2">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-7 col-md-7 col-sm-8 col-8 d-flex justify-content-center align-items-center">
-              <h2 className="sec8-h2">
-                Men <br /> Health & Wellness
-              </h2>
-            </div>
-            <div className="col-lg-5 col-md-5 col-sm-4 col-4">
-              <img
-                className="sec8-img"
-                src="/images/banners/sec8man.png"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Men Age Based Section */}
-      <section>
-        <div className="d-flex justify-content-start pb-lg-3 pb-md-2 px-lg-5 px-md-4 px-sm-3 px-3">
-          <Link className="view-all" to="/men-care">
-            View All
-          </Link>
-        </div>
-        <div className="carousel-6-m men-carousel">
-          <div className="row">
-            {menAge.map((item, index) => (
-              <div
-                key={index}
-                className="col-lg-3 col-md-4 col-sm-6 col-6 my-2"
-              >
-                <Link to={`/men-care?tab=${encodeURIComponent(item.name)}`}>
-                  <div className="test-cardmain">
-                    <div className="test-card text-center">
-                      <img
-                        className="test-cardimg"
-                        src={getImageUrl(item.imagePath)}
-                        alt={item.name}
-                      />
-                      <h4 className="testcard-head">{item.name}</h4>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Single Tests Section */}
-      <section className="py-5">
-        <div className="container">
-          <div className="new-bg d-flex justify-content-between">
-            <h2 className="sec-1h text-start">Single Tests</h2>
-            <Link className="view-all" to="/single-test">
-              View All
-            </Link>
-          </div>
-          <div className="row">
-            {singleTest.map((item, index) => (
-              <div
-                key={index}
-                className="col-lg-3 col-md-4 col-sm-6 col-6 my-2"
-              >
-                <Link to={`/product?id=${item._id}&category=${item.category}`}>
-                  <div className="test-cardmain">
-                    <div className="test-card text-center">
-                      <img
-                        className="test-cardimg"
-                        src={getImageUrl(item.imagePath)}
-                        alt={item.name}
-                      />
-                      <h5 className="testcard-head">{item.name}</h5>
-                      <p className="text-muted">₹{item.price}</p>
-                    </div>
-                  </div>
-                </Link>
               </div>
             ))}
           </div>
