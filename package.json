@@ -1,6 +1,7 @@
 {
   "name": "futurelabs-react-app",
   "version": "1.0.0",
+  "homepage": "https://ashiii2121.github.io/futurelab",
   "description": "React conversion of FutureLabs healthcare application",
   "main": "src/index.js",
   "scripts": {
